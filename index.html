@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset = uft-8" />
+	<title>圣诞主题</title>
+	<style type="text/css">
+		.bird{
+			min-width: 91px;
+			min-height: 71px;
+			background :url(images/bird.png);
+		}
+
+		.bird-fly{
+			-moz-animation: bird-slow 400ms steps(1,start) infinite;
+			/*-webkit-animation: bird-slow 400ms steps(3) infinite;*/
+			-webkit-animation-name: bird-slow;
+        	-webkit-animation-duration: 400ms;
+        	-webkit-animation-timing-function: steps(3);
+        	-webkit-animation-iteration-count: infinite;
+		}
+
+		@keyframes bird-slow{
+			0% { background-position-x: -0px;}
+			100% { background-position-x: -273x;}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="bird bird-fly"></div>
+	</section>
+</body>
+<script type="text/javascript">
+	/**
+	 * 让内容、文字大小随屏幕/窗口分辨率自适应变化
+	 */
+	var docEl = document.documentElement,
+		//定义事件：orientation设备方向变化（设备横向持或纵向持）
+		//          resize浏览器窗口大小改变
+		resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+		//事件处理程序：相对当前分辨率，重新设定根元素html的font-size值
+		recalc = function(){
+			docEl.style.fontSize = 20 * (docEl.clientWidth / 320) + 'px';
+		};
+
+	//绑定事件处理
+	window.addEventListener(resizeEvt, recalc, false);
+	document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</html>
