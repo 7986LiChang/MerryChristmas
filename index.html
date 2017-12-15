@@ -5,23 +5,20 @@
 	<title>圣诞主题</title>
 	<style type="text/css">
 		.bird{
+			width: 91px;
+			height: 71px;
 			min-width: 91px;
 			min-height: 71px;
-			background :url(images/bird.png);
+			background: url(images/bird.png);
 		}
 
 		.bird-fly{
-			-moz-animation: bird-slow 400ms steps(1,start) infinite;
-			/*-webkit-animation: bird-slow 400ms steps(3) infinite;*/
-			-webkit-animation-name: bird-slow;
-        	-webkit-animation-duration: 400ms;
-        	-webkit-animation-timing-function: steps(3);
-        	-webkit-animation-iteration-count: infinite;
+			animation: bird-slow 400ms steps(3) infinite;	
 		}
 
 		@keyframes bird-slow{
 			0% { background-position-x: -0px;}
-			100% { background-position-x: -273x;}
+			100% { background-position-x: -273px;}
 		}
 	</style>
 </head>
