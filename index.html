@@ -4,12 +4,17 @@
 	<meta http-equiv="Content-type" content="text/html; charset = uft-8" />
 	<title>圣诞主题</title>
 	<style type="text/css">
+
 		.bird{
-			width: 91px;
-			height: 71px;
-			min-width: 91px;
-			min-height: 71px;
+			width: 1.5rem;
+			height: 0.75rem;
+			min-width: 1.5rem;
+			min-height: 0.75rem;
+			position: absolute;
+			top: 0.1rem;
+			left: 3rem;
 			background: url(images/bird.png);
+			background-size: 300% 100%;  /*背景自适应放大缩小*/
 		}
 
 		.bird-fly{
@@ -18,30 +23,42 @@
 
 		@keyframes bird-slow{
 			0% { background-position-x: -0px;}
-			100% { background-position-x: -273px;}
+			100% { background-position-x: -300%;}
 		}
 	</style>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
 </head>
 <body>
 	<section>
-		<div class="bird bird-fly"></div>
+		<div class="bird bird-fly" id="bird"></div>
 	</section>
-</body>
-<script type="text/javascript">
-	/**
-	 * 让内容、文字大小随屏幕/窗口分辨率自适应变化
-	 */
-	var docEl = document.documentElement,
-		//定义事件：orientation设备方向变化（设备横向持或纵向持）
-		//          resize浏览器窗口大小改变
-		resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
-		//事件处理程序：相对当前分辨率，重新设定根元素html的font-size值
-		recalc = function(){
-			docEl.style.fontSize = 20 * (docEl.clientWidth / 320) + 'px';
-		};
+	<button>点击飞动</button>
 
-	//绑定事件处理
-	window.addEventListener(resizeEvt, recalc, false);
-	document.addEventListener('DOMContentLoaded', recalc, false);
-</script>
+	<script type="text/javascript">
+		$("button").on("click", function(){
+			// $(".bird").transition({'top': '3rem', 'left': '3rem'}, 500, 'linear', function(){alert("end!")});
+			$('.bird').transition({'left': '0.3rem', 'top': '3rem'}, 1000, 'linear', function(){
+
+			});
+		});
+
+
+		/**
+		 * 让内容、文字大小随屏幕/窗口分辨率自适应变化
+		 */
+		var docEl = document.documentElement,
+			//定义事件：orientation设备方向变化（设备横向持或纵向持）
+			//          resize浏览器窗口大小改变
+			resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+			//事件处理程序：相对当前分辨率，重新设定根元素html的font-size值
+			recalc = function(){
+				docEl.style.fontSize = 20 * (docEl.clientWidth / 320) + 'px';
+			};
+
+		//绑定事件处理
+		window.addEventListener(resizeEvt, recalc, false);
+		document.addEventListener('DOMContentLoaded', recalc, false);
+	</script>
+
 </html>
